@@ -1,14 +1,8 @@
-/* ═══════════════════════════════════════════════════════════
-   SOHO — KARAOKE BAR
-   Vanilla JS · Content injection · Scroll & reveal effects
-   ═══════════════════════════════════════════════════════════ */
+// karaoke venue landing page
 
 'use strict';
 
-/* ─────────────────────────────────────────────
-   0. CONTENT DATA
-   Все изображения — Pexels (free to use, без атрибуции).
-   ───────────────────────────────────────────── */
+// content data
 
 const PX = (id, w = 900) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
@@ -241,9 +235,7 @@ const ICONS = {
   ig: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-.9 0-1.4.2-1.7.3-.4.2-.7.3-.9.6-.3.2-.4.5-.6.9-.1.3-.3.8-.3 1.7-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c0 .9.2 1.4.3 1.7.2.4.3.7.6.9.2.3.5.4.9.6.3.1.8.3 1.7.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c.9 0 1.4-.2 1.7-.3.4-.2.7-.3.9-.6.3-.2.4-.5.6-.9.1-.3.3-.8.3-1.7.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c0-.9-.2-1.4-.3-1.7-.2-.4-.3-.7-.6-.9-.2-.3-.5-.4-.9-.6-.3-.1-.8-.3-1.7-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 8a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2zm6.2-8.2a1.1 1.1 0 11-2.3 0 1.1 1.1 0 012.3 0z"/></svg>',
 };
 
-/* ─────────────────────────────────────────────
-   1. UTILITIES
-   ───────────────────────────────────────────── */
+// shared utilities
 
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -252,15 +244,13 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 const fmtNum = (n) => n.toLocaleString('ru-RU');
 
-/* Простое экранирование для текста, попадающего в innerHTML */
+// escape text before inserting it into HTML
 const esc = (s) =>
   String(s).replace(/[&<>"']/g, (c) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   }[c]));
 
-/* ─────────────────────────────────────────────
-   2. CONTENT RENDERING
-   ───────────────────────────────────────────── */
+// render page content
 
 function renderFeatures() {
   const list = $('#featuresList');
@@ -415,8 +405,7 @@ function renderSocials() {
   if (footer) footer.innerHTML = DATA.socials.map((s) => chip(s, true)).join('');
 }
 
-/* Marquee with artists right after the hero.
-   The list is duplicated so the -50% CSS animation loops seamlessly. */
+// duplicate artists for a seamless marquee loop
 function renderMarquee() {
   const track = $('#artistsTrack');
   if (!track) return;
@@ -424,14 +413,11 @@ function renderMarquee() {
   const item = (a) =>
     `<span class="marquee__item">${esc(a.name)} <em>${esc(a.genre)}</em></span>`;
 
-  // two identical halves -> translateX(-50%) makes an infinite loop
   const half = DATA.artists.map(item).join('');
   track.innerHTML = half + half;
 }
 
-/* ─────────────────────────────────────────────
-   3. SCROLL REVEAL
-   ───────────────────────────────────────────── */
+// reveal elements as they enter the viewport
 
 function initReveal() {
   const targets = $$('.reveal, .stagger');
@@ -457,9 +443,7 @@ function initReveal() {
   targets.forEach((el) => io.observe(el));
 }
 
-/* ─────────────────────────────────────────────
-   4. ANIMATED COUNTERS
-   ───────────────────────────────────────────── */
+// animated statistics
 
 function animateCounter(el) {
   const target = Number(el.dataset.target) || 0;
@@ -487,7 +471,7 @@ function initCounters() {
   const nums = $$('.counter-num');
   if (!nums.length) return;
 
-  // Метки из DATA (suffix для каталога треков)
+  // apply configured counter suffixes
   nums.forEach((el, i) => {
     const cfg = DATA.counters[i];
     if (cfg && cfg.suffix) el.dataset.suffix = cfg.suffix;
@@ -514,7 +498,7 @@ function initCounters() {
   nums.forEach((el) => io.observe(el));
 }
 
-/* «Живой» счётчик спетых песен: +1 каждые 6–14 секунд */
+// increment the live song count at random intervals
 function startLiveCounter() {
   const el = $('.counter-num');
   if (!el || prefersReducedMotion) return;
@@ -537,9 +521,7 @@ function startLiveCounter() {
   setTimeout(tick, 5000 + Math.random() * 4000);
 }
 
-/* ─────────────────────────────────────────────
-   5. NAVIGATION
-   ───────────────────────────────────────────── */
+// navigation behavior
 
 function initNav() {
   const nav = $('#nav');
@@ -579,7 +561,7 @@ function initNav() {
   });
 }
 
-/* Активная ссылка в навигации по текущей секции */
+// highlight the link for the visible section
 function initActiveSection() {
   const links = $$('.nav__link[href^="#"]');
   const sections = links
@@ -603,12 +585,9 @@ function initActiveSection() {
   sections.forEach((s) => io.observe(s.section));
 }
 
-/* ─────────────────────────────────────────────
-   6. DRAG-SCROLL (галерея и кухня)
-   ───────────────────────────────────────────── */
+// drag scrolling for gallery and kitchen
    
-/* width of one slide plus gap = snap step.
-   direction is read from computed style so the gap can be changed in css. */
+// calculate one slide's width including its CSS gap
 function slideStep(el) {
   const item = el.firstElementChild;
   if (!item) return 0;
@@ -617,24 +596,19 @@ function slideStep(el) {
   return item.offsetWidth + gap;
 }
 
-/* smoothly glide the scroll to the nearest slide and land exactly on it.
-   we animate manually because css scroll-snap fights programmatic scrolling
-   while `scroll-behavior: smooth` is active together with a drag in progress. */
+// snap to the nearest slide after dragging
 function snapToNearest(el) {
   const step = slideStep(el);
   if (!step) return;
 
   const pad = parseFloat(getComputedStyle(el).paddingLeft) || 0;
-  // current position measured against the first snap point
   const raw = (el.scrollLeft - pad) / step;
-  // decide direction from how far we are into the current slide
   const target = Math.round(raw);
   const left = target * step + pad;
 
   el.classList.add('is-snapping');
   el.scrollTo({ left, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
 
-  // release the lock once the animation settles
   const done = () => {
     el.classList.remove('is-snapping');
     el.removeEventListener('scrollend', done);
@@ -642,15 +616,14 @@ function snapToNearest(el) {
   if ('onscrollend' in el) {
     el.addEventListener('scrollend', done);
   } else {
-    // fallback for browsers without scrollend
+    // use a timeout where scrollend is unavailable
     clearTimeout(el._snapT);
     el._snapT = setTimeout(done, 420);
   }
 }
 
 
-/* make an element draggable. the optional onEnd callback runs after the drag
-   finishes (used by the gallery to snap to the nearest slide). */
+// enable pointer, wheel, and touch scrolling for a track
 function makeDraggable(el, onEnd) {
   if (!el) return;
   let down = false;
@@ -674,10 +647,10 @@ function makeDraggable(el, onEnd) {
     el.scrollLeft = startScroll - delta;
   };
   const end = () => {
-    if (!down) return;           // ignore stray mouseup / mouseleave
+    if (!down) return;
     down = false;
     el.classList.remove('is-dragging');
-    // snap only when a real drag happened, not on a plain click
+    // snap only after an actual drag
     if (moved && typeof onEnd === 'function') onEnd(el);
   };
 
@@ -689,7 +662,7 @@ function makeDraggable(el, onEnd) {
   window.addEventListener('mouseup', end);
   el.addEventListener('mouseleave', end);
 
-  // block link navigation if this was a drag
+  // prevent clicks after dragging
   el.addEventListener('click', (e) => {
     if (moved) {
       e.preventDefault();
@@ -697,8 +670,7 @@ function makeDraggable(el, onEnd) {
     }
   });
 
-  // smooth horizontal scrolling with the wheel.
-  // when shift is held we treat vertical wheel as horizontal movement.
+  // map shift-wheel gestures to horizontal scrolling
   el.addEventListener(
     'wheel',
     (e) => {
@@ -712,7 +684,7 @@ function makeDraggable(el, onEnd) {
     { passive: false }
   );
 
-  // touch: let the browser handle momentum, snap once it settles
+  // snap after touch scrolling settles
   el.addEventListener('touchend', () => {
     if (typeof onEnd === 'function') snapToNearest(el);
   }, { passive: true });
@@ -725,10 +697,8 @@ function initGallery() {
   const next = $('#galleryNext');
   if (!slider) return;
 
-  // drag ends with a smooth glide to the nearest slide
   makeDraggable(slider, snapToNearest);
 
-  // snap one full slide per arrow click (same step as the snap grid)
   const step = () => slideStep(slider) || slider.clientWidth * 0.8;
 
   if (prev) prev.addEventListener('click', () => slider.scrollBy({ left: -step(), behavior: 'smooth' }));
@@ -749,7 +719,6 @@ function initKitchen() {
 
   const track = $('#kitchenTrack');
   if (!track) return;
-  // same smooth glide-to-slide snapping as the gallery
   makeDraggable(track, snapToNearest);
 }
 
@@ -757,9 +726,7 @@ function initKitchen() {
 
 
 
-/* ─────────────────────────────────────────────
-   7. REVIEWS CAROUSEL
-   ───────────────────────────────────────────── */
+// reviews carousel
 
 function initReviews() {
   const track = $('#reviewsCarousel');
@@ -808,7 +775,7 @@ function initReviews() {
     if (!prefersReducedMotion) timer = setInterval(nextSlide, 5500);
   };
 
-  // Свайп на тач-устройствах
+  // support swipe navigation on touch screens
   let touchX = 0;
   track.addEventListener(
     'touchstart',
@@ -848,9 +815,7 @@ function initReviews() {
   restart();
 }
 
-/* ─────────────────────────────────────────────
-   8. BOOKING FORM + VALIDATION
-   ───────────────────────────────────────────── */
+// booking form and validation
 
 const VALIDATORS = {
   name: (v) => {
@@ -948,7 +913,7 @@ function initBooking() {
     el.addEventListener('change', () => validateField(el));
   });
 
-  // Предзаполнение зала из карточки VIP
+  // preselect the room chosen from a VIP card
   document.addEventListener('click', (e) => {
     const link = e.target.closest('.vip-card__link');
     if (!link) return;
@@ -978,8 +943,7 @@ function initBooking() {
       btn.textContent = 'Отправляем...';
     }
 
-    // Демо-режим: реальной отправки нет.
-    // Для продакшена — POST на ваш backend или сервис вроде EmailJS / Formspree.
+    // demo submission; connect a backend for production
     setTimeout(() => {
       const success = $('#bookingSuccess');
       form.hidden = true;
@@ -991,9 +955,7 @@ function initBooking() {
   });
 }
 
-/* ─────────────────────────────────────────────
-   9. OPENSTREETMAP (Leaflet)
-   ───────────────────────────────────────────── */
+// venue map
 
 function initMap() {
   const node = document.getElementById('map-wide');
@@ -1009,7 +971,6 @@ function initMap() {
     attributionControl: true,
   });
 
-  // Real OpenStreetMap tiles (classic OSM view)
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     subdomains: 'abc',
@@ -1032,18 +993,16 @@ function initMap() {
         `<a href="tel:${phoneRaw}">${phone}</a>`
     );
 
-  // Клик включает зум колесом, уход мыши — выключает
+  // enable wheel zoom only while interacting with the map
   map.on('click', () => map.scrollWheelZoom.enable());
   node.addEventListener('mouseleave', () => map.scrollWheelZoom.disable());
 
-  // Пересчёт размеров после появления в вязкости layout
+  // refresh map dimensions after layout changes
   setTimeout(() => map.invalidateSize(), 300);
   window.addEventListener('resize', () => map.invalidateSize());
 }
 
-/* ─────────────────────────────────────────────
-   10. MENU PDF
-   ───────────────────────────────────────────── */
+// menu download
 
 function initMenuDownload() {
   const btn = $('#menuDownload');
@@ -1052,25 +1011,23 @@ function initMenuDownload() {
   btn.setAttribute('download', 'SOHO-menu.pdf');
 }
 
-/* ─────────────────────────────────────────────
-   11. HERO VIDEO FALLBACK
-   ───────────────────────────────────────────── */
+// responsive hero video
 
 function initHeroVideo() {
   const video = $('#heroVideo');
   if (!video) return;
 
-  // Экономия трафика: уважаем prefers-reduced-motion и Save-Data
+  // avoid video playback for reduced motion or limited data
   const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   const saveData = Boolean(conn && conn.saveData);
   const slowNet = Boolean(conn && /^(slow-2g|2g|3g)$/.test(conn.effectiveType || ''));
 
   if (prefersReducedMotion || saveData || slowNet) {
     video.removeAttribute('autoplay');
-    return; // остаётся poster — статичный кадр вместо видео
+    return; // keep the poster as a static fallback
   }
 
-  // Выбираем рендишен под размер вьюпорта (экономим мобильный трафик)
+  // select a video size suited to the viewport
   const w = Math.max(window.innerWidth, window.innerHeight);
   const dpr = window.devicePixelRatio || 1;
   let src;
@@ -1084,7 +1041,7 @@ function initHeroVideo() {
   video.appendChild(source);
   video.load();
 
-  // Если автоплей заблокирован или видео не загрузилось — остаётся poster
+  // keep the poster if playback fails
   const play = video.play();
   if (play && typeof play.catch === 'function') {
     play.catch(() => {
@@ -1095,7 +1052,7 @@ function initHeroVideo() {
     video.style.display = 'none';
   });
 
-  // Пауза, когда hero вне экрана — не греем CPU на длинной странице
+  // pause playback while the hero is off screen
   if ('IntersectionObserver' in window) {
     const hero = $('#hero');
     if (hero) {
@@ -1112,9 +1069,7 @@ function initHeroVideo() {
   }
 }
 
-/* ─────────────────────────────────────────────
-   12. SMOOTH ANCHOR SCROLL (с учётом фикс-хедера)
-   ───────────────────────────────────────────── */
+// smooth anchor scrolling with a fixed-header offset
 
 function initAnchors() {
   document.addEventListener('click', (e) => {
@@ -1136,7 +1091,7 @@ function initAnchors() {
   });
 }
 
-/* keyboard support: left/right arrow keys move the gallery one slide at a time */
+// support arrow-key navigation in the gallery
 function initGalleryKeyboard() {
   const slider = $('#gallerySlider');
   if (!slider) return;
@@ -1157,12 +1112,9 @@ function initGalleryKeyboard() {
   });
 }
 
-/* ─────────────────────────────────────────────
-   13. BOOT
-   ───────────────────────────────────────────── */
+// initialize page content and behavior
 
 function boot() {
-  // Контент
   renderFeatures();
   renderGallery();
   renderRooms();
@@ -1172,7 +1124,6 @@ function boot() {
   renderSocials();
   renderMarquee();
 
-  // Поведение
   initNav();
   initAnchors();
   initReveal();

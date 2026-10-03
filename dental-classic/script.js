@@ -1,3 +1,4 @@
+// clinic content data
 const DATA = {
   benefits: [
     {
@@ -187,6 +188,7 @@ const DATA = {
   ],
 };
 
+// render clinic sections from the content data
 function renderBenefits() {
   const grid = document.getElementById("benefits-grid");
   if (!grid) return;
@@ -331,6 +333,7 @@ function renderReviews() {
     .join("");
 }
 
+// handle consultation form submissions
 function handleFormSubmit(e) {
   e.preventDefault();
 
@@ -344,6 +347,7 @@ function handleFormSubmit(e) {
   e.target.reset();
 }
 
+// format phone input as it is typed
 function initPhoneMask() {
   const phoneInput = document.querySelector('input[name="phone"]');
   if (!phoneInput) return;
@@ -398,6 +402,7 @@ function initSmoothScroll() {
   });
 }
 
+// reveal section content as it enters the viewport
 function initScrollReveal() {
   const observerOptions = {
     root: null,
@@ -414,7 +419,7 @@ function initScrollReveal() {
     });
   }, observerOptions);
 
-  // Select all section titles, subtitles, and newly rendered cards
+  // include both static and dynamically rendered content
   const revealElements = document.querySelectorAll(
     ".section-title, .section-subtitle, .benefit-card, .gallery-item, .service-card, .doctor-card > *, .review-card, .consultation-card, .footer-col, .reviews-platforms, .reveal",
   );
@@ -426,7 +431,7 @@ function initScrollReveal() {
       !el.classList.contains("reveal-right") &&
       !el.classList.contains("reveal-scale")
     ) {
-      // Apply staggered or standard reveal classes
+      // assign the appropriate reveal animation
       if (el.classList.contains("gallery-item")) {
         el.classList.add("reveal-scale");
       } else if (el.classList.contains("doctor-image")) {
@@ -441,6 +446,7 @@ function initScrollReveal() {
   });
 }
 
+// render content and initialize page interactions
 function init() {
   renderBenefits();
   renderGallery();

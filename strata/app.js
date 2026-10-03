@@ -1,4 +1,4 @@
-/* ---------- Контент ---------- */
+// page content data
 const VIDEO_SRC = "footage.mp4";
 const U = (id, w = 1400) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
@@ -133,7 +133,7 @@ const VALUES = [
   ["Долгий горизонт", "Проектируем на пятьдесят лет, а не на сдачу."],
 ];
 
-/* ---------- Хелперы ---------- */
+// shared rendering helpers
 const $ = (s, c = document) => c.querySelector(s),
   $$ = (s, c = document) => [...c.querySelectorAll(s)];
 const AR =
@@ -173,7 +173,7 @@ const footer =
 <div><h4>Связь</h4><a href="tel:+70000000000">+7 (000) 000-00-00</a><a href="mailto:hello@strata.example">hello@strata.example</a></div>
 <div><h4>Офис</h4><p>Москва, Пресненская наб., 12</p></div></footer>`;
 
-/* ---------- Страницы ---------- */
+// page templates
 const views = {
   home: () => `
 <section class="hero"><div class="bg"><img src="${U(IMG.hero, 2000)}" alt="" onerror="this.remove()"></div>
@@ -199,7 +199,7 @@ const views = {
 <section class="cat wrap"><div class="grid" id="list"></div></section>${footer()}`,
 };
 
-/* ---------- Анимации ---------- */
+// scroll and entrance animations
 const reveal = (root = document) =>
   $$(".rv", root).forEach((el) => {
     gsap.from(words(el), {
@@ -393,7 +393,7 @@ const init = {
   },
 };
 
-/* ---------- Роутер с переходом-шторкой ---------- */
+// hash routing with curtain transitions
 const app = $("#app"),
   cur = $(".curtain");
 let first = true;

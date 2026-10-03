@@ -1,8 +1,4 @@
-// ───────────────────────────────────────────────────────────
-// FORMA — LANDING PAGE JS
-// ───────────────────────────────────────────────────────────
-
-// ─── DATA ───
+// landing page content data
 const statsData = [
   { num: '500+', label: 'Проектов' },
   { num: '12 лет', label: 'На рынке' },
@@ -118,7 +114,7 @@ const testimonialsData = [
   }
 ];
 
-// ─── INTERSECTION OBSERVER (reveal animation) ───
+// reveal elements as they enter the viewport
 const observeReveals = () => {
   const observer = new IntersectionObserver(
     entries => {
@@ -134,7 +130,7 @@ const observeReveals = () => {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 };
 
-// ─── HEADER SCROLL ───
+// update header styling on scroll
 const initHeaderScroll = () => {
   const header = document.getElementById('site-header');
   let lastScroll = 0;
@@ -150,7 +146,7 @@ const initHeaderScroll = () => {
   });
 };
 
-// ─── BURGER MENU ───
+// toggle the mobile navigation
 const initBurger = () => {
   const burger = document.querySelector('.burger');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -172,7 +168,7 @@ const initBurger = () => {
   });
 };
 
-// ─── INJECT STATS ───
+// render landing page sections
 const renderStats = () => {
   const grid = document.getElementById('stats-grid');
   grid.innerHTML = statsData
@@ -187,7 +183,6 @@ const renderStats = () => {
     .join('');
 };
 
-// ─── INJECT ABOUT ───
 const renderAbout = () => {
   document.getElementById('about-text').innerHTML = aboutText;
   document.getElementById('about-values').innerHTML = aboutValues
@@ -202,7 +197,6 @@ const renderAbout = () => {
     .join('');
 };
 
-// ─── INJECT WORKS ───
 const renderWorks = () => {
   const grid = document.getElementById('works-grid');
   grid.innerHTML = worksData
@@ -220,7 +214,6 @@ const renderWorks = () => {
     .join('');
 };
 
-// ─── INJECT PROCESS ───
 const renderProcess = () => {
   const list = document.getElementById('process-list');
   list.innerHTML = processSteps
@@ -235,7 +228,6 @@ const renderProcess = () => {
     .join('');
 };
 
-// ─── INJECT MATERIALS ───
 const renderMaterials = () => {
   const grid = document.getElementById('materials-grid');
   grid.innerHTML = materialsData
@@ -253,14 +245,13 @@ const renderMaterials = () => {
     .join('');
 };
 
-// ─── TESTIMONIALS CAROUSEL ───
+// render and control the testimonials carousel
 const initTestimonials = () => {
   const track = document.getElementById('testimonials-track');
   const dotsContainer = document.getElementById('t-dots');
   const prevBtn = document.getElementById('t-prev');
   const nextBtn = document.getElementById('t-next');
 
-  // render cards
   track.innerHTML = testimonialsData
     .map(
       t => `
@@ -278,7 +269,6 @@ const initTestimonials = () => {
     )
     .join('');
 
-  // render dots
   dotsContainer.innerHTML = testimonialsData
     .map((_, i) => `<button class="t-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Отзыв ${i + 1}"></button>`)
     .join('');
@@ -287,10 +277,9 @@ const initTestimonials = () => {
 
   const updateCarousel = () => {
     const cardWidth = track.children[0].offsetWidth;
-    const gap = 16; // var(--sp-2)
+    const gap = 16;
     track.scrollTo({ left: currentIndex * (cardWidth + gap), behavior: 'smooth' });
 
-    // update dots
     document.querySelectorAll('.t-dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === currentIndex);
     });
@@ -314,12 +303,12 @@ const initTestimonials = () => {
   });
 };
 
-// ─── FOOTER YEAR ───
+// keep the footer year current
 const setFooterYear = () => {
   document.getElementById('footer-year').textContent = new Date().getFullYear();
 };
 
-// ─── INIT ───
+// initialize the landing page
 const init = () => {
   renderStats();
   renderAbout();

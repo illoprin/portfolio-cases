@@ -1,8 +1,4 @@
-// ───────────────────────────────────────────────────────────
-// FORMA — CATALOG PAGE JS
-// ───────────────────────────────────────────────────────────
-
-// ─── PRODUCT DATA ───
+// catalog product data
 const productsData = [
   {
     id: 1,
@@ -128,13 +124,13 @@ const materialLabels = {
   leather: 'Кожа'
 };
 
-// ─── STATE ───
+// active catalog filters
 let filters = {
   type: 'all',
   material: 'all'
 };
 
-// ─── INTERSECTION OBSERVER (reveal animation) ───
+// reveal elements as they enter the viewport
 const observeReveals = () => {
   const observer = new IntersectionObserver(
     entries => {
@@ -149,7 +145,7 @@ const observeReveals = () => {
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 };
-// ─── RENDER PRODUCTS ───
+// render products matching the active filters
 const renderProducts = () => {
   const grid = document.getElementById('catalog-grid');
   const emptyState = document.getElementById('catalog-empty');
@@ -183,7 +179,6 @@ const renderProducts = () => {
       )
       .join('');
 
-    // click → open modal
     document.querySelectorAll('.product-card').forEach(card => {
       card.addEventListener('click', () => {
         openModal();
@@ -192,7 +187,7 @@ const renderProducts = () => {
   }
 };
 
-// ─── UPDATE SUMMARY ───
+// update the result count
 const updateSummary = () => {
   const summary = document.getElementById('filters-summary');
   const count = productsData.filter(p => {
@@ -204,7 +199,7 @@ const updateSummary = () => {
   summary.textContent = `Найдено товаров: ${count}`;
 };
 
-// ─── INIT FILTERS ───
+// connect filter controls
 const initFilters = () => {
   const typeSelect = document.getElementById('filter-type');
   const materialSelect = document.getElementById('filter-material');
@@ -232,7 +227,7 @@ const initFilters = () => {
   });
 };
 
-// ─── MODAL ───
+// request modal behavior
 const openModal = () => {
   const modal = document.getElementById('request-modal');
   modal.setAttribute('aria-hidden', 'false');
@@ -243,7 +238,6 @@ const closeModal = () => {
   const modal = document.getElementById('request-modal');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  // reset form
   document.getElementById('request-form').reset();
   document.getElementById('modal-success').style.display = 'none';
   document.querySelector('.modal-form').style.display = 'flex';
@@ -264,18 +258,15 @@ const initModal = () => {
   backdrop.addEventListener('click', closeModal);
   successCloseBtn.addEventListener('click', closeModal);
 
-  // form submit
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    // simple validation
     const name = document.getElementById('form-name').value.trim();
     const phone = document.getElementById('form-phone').value.trim();
     const email = document.getElementById('form-email').value.trim();
 
     let valid = true;
 
-    // clear errors
     document.querySelectorAll('.form-error').forEach(e => {
       e.textContent = '';
       e.classList.remove('visible');
@@ -304,16 +295,15 @@ const initModal = () => {
     }
 
     if (valid) {
-      // simulate send
+      // replace with a real request when backend integration is added
       console.log('Form submitted:', { name, phone, email });
-      // show success
       document.querySelector('.modal-form').style.display = 'none';
       document.getElementById('modal-success').style.display = 'block';
     }
   });
 };
 
-// ─── HEADER & BURGER (reused from main.js) ───
+// shared header behavior
 const initHeaderScroll = () => {
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
@@ -350,7 +340,7 @@ const setFooterYear = () => {
   document.getElementById('footer-year').textContent = new Date().getFullYear();
 };
 
-// ─── INIT ───
+// initialize the catalog page
 const init = () => {
   renderProducts();
   updateSummary();

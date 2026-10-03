@@ -1,3 +1,4 @@
+// cache menu elements and project cards
 const menuToggle = document.querySelector('.menu-toggle');
 const siteMenu = document.querySelector('.site-menu');
 const menuClose = document.querySelector('.menu-close');
@@ -5,11 +6,13 @@ const menuBackdrop = document.querySelector('.menu-backdrop');
 const menuItems = [...document.querySelectorAll('.menu-item')];
 const projectCards = [...document.querySelectorAll('.project-card')];
 
+// update the backdrop for the active project
 function setMenuImage(index = 0) {
   const image = projectCards[index]?.dataset.menuImage;
   if (image) menuBackdrop.style.backgroundImage = `url("${image}")`;
 }
 
+// synchronize menu state and keyboard focus
 function setMenuOpen(isOpen) {
   document.body.classList.toggle('menu-open', isOpen);
   menuToggle.setAttribute('aria-expanded', String(isOpen));

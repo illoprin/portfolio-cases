@@ -1,3 +1,4 @@
+// page content data
 const data = {
   nav: [
     { t: "Коллекция", h: "#catalog" },
@@ -130,6 +131,7 @@ const data = {
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
+// render page sections from the content data
 $("#nav").innerHTML = data.nav
   .map((x) => `<a href="${x.h}">${x.t}</a>`)
   .join("");
@@ -170,6 +172,7 @@ $("#faq").innerHTML = data.faq
   )
   .join("");
 
+// reveal elements as they enter the viewport
 const observer = new IntersectionObserver(
   (entries) =>
     entries.forEach((e) => {
@@ -188,6 +191,7 @@ const updateScrollUp = () =>
 window.addEventListener("scroll", updateScrollUp, { passive: true });
 updateScrollUp();
 
+// enable pointer dragging on the catalog track
 const catalogTrack = $("#catalogTrack");
 catalogTrack.style.cursor = "grab";
 catalogTrack.querySelectorAll("img").forEach((img) => (img.draggable = false));
@@ -217,6 +221,7 @@ catalogTrack.addEventListener("pointerup", stopCatalogDrag);
 catalogTrack.addEventListener("pointercancel", stopCatalogDrag);
 catalogTrack.addEventListener("dragstart", (e) => e.preventDefault());
 
+// keep only one FAQ answer expanded at a time
 $("#faq").addEventListener("click", (e) => {
   const q = e.target.closest(".faq-q");
   if (!q) return;
@@ -239,6 +244,7 @@ $(".menu-btn").addEventListener("click", () =>
 );
 $("#nav").addEventListener("click", () => $("#nav").classList.remove("open"));
 
+// quiz and contact modal content
 const modal = $("#modal"),
   content = $("#modalContent");
 const quiz = {
