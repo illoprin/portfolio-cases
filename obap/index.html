@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Кухни OPAB — собственное производство, бесплатный замер и 3D-проект, гарантия 5 лет.">
+  <title>OPAB — кухни от фабрики</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="OPAB">OPAB<span>•</span></a>
+      <nav class="nav" id="nav"></nav>
+      <button class="header__cta js-quiz">Рассчитать кухню</button>
+      <button class="menu-btn" aria-label="Открыть меню"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero__media">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1800&q=85" alt="Современная кухня" fetchpriority="high">
+        <div class="hero__shade"></div>
+      </div>
+      <div class="container hero__content">
+        <div class="eyebrow reveal">Фабрика кухонь · Нижний Новгород</div>
+        <h1 class="reveal">Кухня, которую<br><em>хочется любить.</em></h1>
+        <p class="hero__lead reveal">Честная цена от производителя. Бесплатный замер и 3D-проект без обязательств.</p>
+        <div class="hero__actions reveal">
+          <a href="#catalog" class="btn btn--light">Смотреть коллекцию <span>↓</span></a>
+          <button class="btn btn--accent js-quiz">Узнать стоимость <span>↗</span></button>
+        </div>
+        <div class="hero__proof reveal">
+          <strong>4 780+</strong><span>семей уже выбрали OPAB</span>
+          <i></i><span>10+ лет производим кухни</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Почему OPAB</span>
+          <h2>Всё просто.<br><em>Без лишних слов.</em></h2>
+        </div>
+        <div class="benefits" id="benefits"></div>
+      </div>
+    </section>
+
+    <section class="catalog section section--gray" id="catalog">
+      <div class="container">
+        <div class="section-head section-head--row reveal">
+          <div><span class="eyebrow">Коллекция</span><h2>Найдите <em>свой стиль.</em></h2></div>
+          <p>9 коллекций — от спокойного сканди до выразительного лофта.</p>
+        </div>
+        <div class="catalog__track" id="catalogTrack"></div>
+        <div class="slider-hint">← Свайпайте, чтобы смотреть коллекции →</div>
+      </div>
+    </section>
+
+    <section class="showroom section">
+      <div class="container showroom__grid">
+        <div class="showroom__image reveal">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85" alt="Интерьер кухни" loading="lazy">
+          <div class="image-tag">Шоурум OPAB</div>
+        </div>
+        <div class="showroom__copy reveal">
+          <span class="eyebrow">Можно потрогать руками</span>
+          <h2>Приезжайте<br>в <em>шоурум.</em></h2>
+          <p>Посмотрите фасады вживую, откройте ящики, сравните фактуры и получите консультацию дизайнера. Рядом — наше производство.</p>
+          <div class="showroom__facts">
+            <div><strong>01</strong><span>Более 100 образцов материалов</span></div>
+            <div><strong>02</strong><span>Дизайнер на месте</span></div>
+            <div><strong>03</strong><span>ТЦ «Мебельный Базар»</span></div>
+          </div>
+          <button class="text-btn js-modal" data-modal="visit">Записаться на экскурсию <span>↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section section--dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Как это работает</span>
+          <h2>От идеи<br><em>до готовой кухни.</em></h2>
+        </div>
+        <div class="steps" id="steps"></div>
+        <div class="process-note reveal"><span>✓</span> Оплата только после утверждения проекта</div>
+      </div>
+    </section>
+
+    <section class="portfolio section">
+      <div class="container">
+        <div class="section-head section-head--row reveal">
+          <div><span class="eyebrow">Реальные проекты</span><h2>Так может<br><em>выглядеть ваша.</em></h2></div>
+          <p>Цены указаны за готовую кухню с доставкой и сборкой.</p>
+        </div>
+        <div class="projects" id="projects"></div>
+        <div class="center reveal"><button class="btn btn--dark js-quiz">Рассчитать свою кухню <span>↗</span></button></div>
+      </div>
+    </section>
+
+    <section class="quiz-section section section--beige">
+      <div class="container quiz-intro">
+        <div class="quiz-intro__copy reveal">
+          <span class="eyebrow">4 вопроса · 2 минуты</span>
+          <h2>Соберём расчёт<br><em>под вашу кухню.</em></h2>
+          <p>Ответьте на несколько простых вопросов — покажем ориентир стоимости и предложим подходящие решения.</p>
+          <button class="btn btn--accent js-quiz">Начать расчёт <span>↗</span></button>
+        </div>
+        <div class="quiz-intro__visual reveal">
+          <img src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1000&q=85" alt="Дизайнерская кухня" loading="lazy">
+          <span>Индивидуальный проект</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews section">
+      <div class="container">
+        <div class="section-head reveal"><span class="eyebrow">Нам доверяют</span><h2>После кухни<br><em>остаются эмоции.</em></h2></div>
+        <div class="review-grid" id="reviews"></div>
+      </div>
+    </section>
+
+    <section class="faq section section--gray">
+      <div class="container faq__grid">
+        <div class="section-head reveal"><span class="eyebrow">FAQ</span><h2>Ответы<br>на <em>главные вопросы.</em></h2></div>
+        <div class="accordion" id="faq"></div>
+      </div>
+    </section>
+
+    <section class="final section">
+      <div class="container final__inner">
+        <div class="final__copy reveal">
+          <span class="eyebrow">Ваш проект начинается здесь</span>
+          <h2>Не нашли свой<br><em>идеал?</em></h2>
+          <p>Закажите бесплатный 3D-проект — мы нарисуем кухню под ваше пространство, привычки и бюджет.</p>
+          <button class="btn btn--accent js-quiz">Получить 3D-проект <span>↗</span></button>
+        </div>
+        <div class="final__contacts reveal">
+          <div><span>Телефон</span><a href="tel:+78312000000">+7 (831) 200-00-00</a></div>
+          <div><span>Шоурум</span><p>Нижний Новгород,<br>ТЦ «Мебельный Базар»</p></div>
+          <div class="socials"><a href="#">VK</a><a href="#">TG</a><a href="#">WA</a></div>
+        </div>
+      </div>
+      <footer class="container footer"><span>© OPAB, 2026</span><span>Кухни от фабрики</span></footer>
+    </section>
+  </main>
+
+  <div class="sticky-cta">
+    <button class="js-quiz"><span>Рассчитать стоимость</span><b>↗</b></button>
+  </div>
+  <a class="scroll-up" href="#top" aria-label="Наверх">↑</a>
+
+  <div class="modal" id="modal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__box">
+      <button class="modal__close" aria-label="Закрыть">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forma — Мебельный салон</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-landing">
+
+  <!-- ─── HEADER ─── -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Forma — на главную">
+        <span class="logo-mark">F</span>
+        <span class="logo-text">Forma</span>
+      </a>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="#about" class="nav-link">О нас</a></li>
+          <li><a href="#works" class="nav-link">Работы</a></li>
+          <li><a href="#process" class="nav-link">Процесс</a></li>
+          <li><a href="#testimonials" class="nav-link">Отзывы</a></li>
+          <li><a href="catalog.html" class="nav-link nav-link--catalog">Каталог</a></li>
+        </ul>
+      </nav>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <ul class="mobile-nav-list">
+        <li><a href="#about" class="mobile-nav-link">О нас</a></li>
+        <li><a href="#works" class="mobile-nav-link">Работы</a></li>
+        <li><a href="#process" class="mobile-nav-link">Процесс</a></li>
+        <li><a href="#testimonials" class="mobile-nav-link">Отзывы</a></li>
+        <li><a href="catalog.html" class="mobile-nav-link">Каталог</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ─── HERO ─── -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" style="filter: brightness(0.5);">
+        <img
+          src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=1600&auto=format&fit=crop&q=80"
+          alt=""
+          class="hero-img"
+          aria-hidden="true"
+          loading="eager"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow reveal">Авторская мебель на заказ</p>
+        <h1 class="hero-heading reveal reveal--delay-1" id="hero-heading">
+          Пространство,<br />
+          <em>созданное для вас</em>
+        </h1>
+        <p class="hero-sub reveal reveal--delay-2">
+          Разрабатываем и изготавливаем мебель, которая точно повторяет ваш образ жизни — от эскиза до&nbsp;установки.
+        </p>
+        <div class="hero-actions reveal reveal--delay-3">
+          <a href="catalog.html" class="btn btn--primary">Смотреть каталог</a>
+          <a href="#works" class="btn btn--ghost">Наши работы</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span class="scroll-line"></span>
+        <span class="scroll-label">scroll</span>
+      </div>
+    </section>
+
+    <!-- ─── STATS STRIP ─── -->
+    <section class="stats-strip" aria-label="Ключевые показатели">
+      <div class="container stats-grid" id="stats-grid">
+        <!-- injected by main.js -->
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─── -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <img
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&auto=format&fit=crop&q=80"
+            alt="Мастерская Forma — процесс создания мебели"
+            class="about-img"
+            loading="lazy"
+          />
+          <div class="about-badge">
+            <span class="about-badge-num">12</span>
+            <span class="about-badge-text">лет<br />опыта</span>
+          </div>
+        </div>
+        <div class="about-body">
+          <p class="section-eyebrow reveal">О компании</p>
+          <h2 class="section-heading reveal reveal--delay-1" id="about-heading">
+            Мебель — это&nbsp;архитектура вашего дома
+          </h2>
+          <div class="about-text reveal reveal--delay-2" id="about-text">
+            <!-- injected by main.js -->
+          </div>
+          <ul class="about-values reveal reveal--delay-3" id="about-values">
+            <!-- injected by main.js -->
+          </ul>
+          <a href="#works" class="btn btn--secondary reveal reveal--delay-4">Посмотреть работы</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PORTFOLIO / WORKS ─── -->
+    <section class="section works" id="works" aria-labelledby="works-heading">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-eyebrow reveal">Портфолио</p>
+            <h2 class="section-heading reveal reveal--delay-1" id="works-heading">Избранные проекты</h2>
+          </div>
+          <a href="catalog.html" class="btn btn--secondary reveal reveal--delay-2">Весь каталог</a>
+        </div>
+        <div class="works-grid reveal reveal--delay-2" id="works-grid">
+          <!-- injected by main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROCESS ─── -->
+    <section class="section process" id="process" aria-labelledby="process-heading">
+      <div class="container">
+        <p class="section-eyebrow reveal tc">Как мы работаем</p>
+        <h2 class="section-heading reveal reveal--delay-1 tc" id="process-heading">Четыре шага до&nbsp;результата</h2>
+        <ol class="process-list" id="process-list">
+          <!-- injected by main.js -->
+        </ol>
+      </div>
+    </section>
+
+    <!-- ─── MATERIALS ─── -->
+    <section class="section materials" id="materials" aria-labelledby="materials-heading">
+      <div class="container">
+        <p class="section-eyebrow reveal tc">Материалы</p>
+        <h2 class="section-heading reveal reveal--delay-1 tc" id="materials-heading">Только проверенное сырьё</h2>
+        <div class="materials-grid reveal reveal--delay-2" id="materials-grid">
+          <!-- injected by main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <p class="section-eyebrow reveal tc">Отзывы</p>
+        <h2 class="section-heading reveal reveal--delay-1 tc" id="testimonials-heading">Что говорят клиенты</h2>
+        <div class="testimonials-track-wrap">
+          <div class="testimonials-track" id="testimonials-track">
+            <!-- injected by main.js -->
+          </div>
+          <div class="testimonials-nav" aria-label="Переключить отзыв">
+            <button class="t-nav-btn" id="t-prev" aria-label="Предыдущий отзыв">&#8592;</button>
+            <div class="t-dots" id="t-dots"></div>
+            <button class="t-nav-btn" id="t-next" aria-label="Следующий отзыв">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA BANNER ─── -->
+    <section class="cta-banner" aria-labelledby="cta-heading">
+      <img
+        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1400&auto=format&fit=crop&q=80"
+        alt=""
+        class="cta-bg-img"
+        aria-hidden="true"
+        loading="lazy"
+      />
+      <div class="cta-overlay"></div>
+      <div class="container cta-content">
+        <h2 class="cta-heading reveal" id="cta-heading">Готовы обсудить проект?</h2>
+        <p class="cta-sub reveal reveal--delay-1">Оставьте заявку — перезвоним в течение часа и ответим на&nbsp;все вопросы</p>
+        <a href="catalog.html#request" class="btn btn--accent reveal reveal--delay-2">Оставить заявку</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="Forma — на главную">
+          <span class="logo-mark">F</span>
+          <span class="logo-text">Forma</span>
+        </a>
+        <p class="footer-tagline">Авторская мебель на заказ</p>
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <ul class="footer-nav-list">
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#works">Работы</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="#process">Процесс</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contacts">
+        <a href="tel:+74951234567" class="footer-contact-link">+7 (495) 123-45-67</a>
+        <a href="/cdn-cgi/l/email-protection#abc3cec7c7c4ebcdc4d9c6ca86c6cec9cec785d9de" class="footer-contact-link"><span class="__cf_email__" data-cfemail="157d7079797a55737a6778743878707770793b6760">[email&#160;protected]</span></a>
+        <address class="footer-address">Москва, Дизайн-квартал, ул. Лофт, 12</address>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; <span id="footer-year"></span> Forma. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

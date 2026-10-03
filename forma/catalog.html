@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Каталог — Forma</title>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  />
+  <script
+    src="catalog.js"
+    defer
+  ></script>
+</head>
+
+<body class="page-catalog">
+  <!-- ─── HEADER ─── -->
+  <header
+    class="site-header"
+    id="site-header"
+  >
+    <div class="container header-inner">
+      <a
+        href="index.html"
+        class="logo"
+        aria-label="Forma — на главную"
+      >
+        <span class="logo-mark">F</span>
+        <span class="logo-text">Forma</span>
+      </a>
+      <nav
+        class="main-nav"
+        aria-label="Основная навигация"
+      >
+        <ul class="nav-list">
+          <li><a
+              href="index.html#about"
+              class="nav-link"
+            >О нас</a></li>
+          <li><a
+              href="index.html#works"
+              class="nav-link"
+            >Работы</a></li>
+          <li><a
+              href="index.html#process"
+              class="nav-link"
+            >Процесс</a></li>
+          <li>
+            <a
+              href="index.html#testimonials"
+              class="nav-link"
+            >Отзывы</a>
+          </li>
+          <li>
+            <a
+              href="catalog.html"
+              class="nav-link nav-link--catalog"
+            >Каталог</a>
+          </li>
+        </ul>
+      </nav>
+      <button
+        class="burger"
+        aria-label="Открыть меню"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- mobile menu -->
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-hidden="true"
+    >
+      <ul class="mobile-nav-list">
+        <li><a
+            href="index.html#about"
+            class="mobile-nav-link"
+          >О нас</a></li>
+        <li><a
+            href="index.html#works"
+            class="mobile-nav-link"
+          >Работы</a></li>
+        <li>
+          <a
+            href="index.html#process"
+            class="mobile-nav-link"
+          >Процесс</a>
+        </li>
+        <li>
+          <a
+            href="index.html#testimonials"
+            class="mobile-nav-link"
+          >Отзывы</a>
+        </li>
+        <li><a
+            href="catalog.html"
+            class="mobile-nav-link"
+          >Каталог</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ─── CATALOG HERO ─── -->
+    <section
+      class="catalog-hero reveal"
+      style="position: relative; overflow: hidden;"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92"
+        style="position: absolute; inset: 0;filter: brightness(0.5); z-index: -5; top: -35vh;"
+      >
+
+      <div class="container">
+
+        <p class="section-eyebrow reveal">Каталог</p>
+        <h1
+          class="section-heading reveal reveal--delay-1"
+          style="color: #fff;"
+        >Авторская мебель на заказ</h1>
+        <p
+          class="catalog-sub reveal reveal--delay-2"
+          style="color: #fff;"
+        >
+          Выберите категорию или материал — мы подберём лучшие решения
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── FILTERS ─── -->
+    <section
+      class="catalog-filters"
+      aria-label="Фильтры каталога"
+    >
+      <div class="container">
+        <div
+          class="filters-bar"
+          id="filters-bar"
+        >
+          <div class="filter-group">
+            <label
+              for="filter-type"
+              class="filter-label"
+            >Тип мебели</label>
+            <select
+              id="filter-type"
+              class="filter-select"
+              aria-label="Выбрать тип мебели"
+            >
+              <option value="all">Все</option>
+              <option value="sofa">Диваны</option>
+              <option value="chair">Кресла</option>
+              <option value="table">Столы</option>
+              <option value="cabinet">Шкафы</option>
+              <option value="bed">Кровати</option>
+              <option value="shelf">Полки</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label
+              for="filter-material"
+              class="filter-label"
+            >Материал</label>
+            <select
+              id="filter-material"
+              class="filter-select"
+              aria-label="Выбрать материал"
+            >
+              <option value="all">Все</option>
+              <option value="wood">Дерево</option>
+              <option value="metal">Металл</option>
+              <option value="glass">Стекло</option>
+              <option value="fabric">Ткань</option>
+              <option value="leather">Кожа</option>
+            </select>
+          </div>
+          <button
+            id="filter-reset"
+            class="filter-reset"
+            aria-label="Сбросить фильтры"
+          >
+            Сбросить
+          </button>
+        </div>
+        <div
+          class="filters-summary"
+          id="filters-summary"
+          aria-live="polite"
+        >
+          <!-- динамически обновляется -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CATALOG GRID ─── -->
+    <section class="catalog-section reveal reveal--delay-2">
+      <div class="container">
+        <div
+          class="catalog-grid"
+          id="catalog-grid"
+        >
+          <!-- injected by catalog.js -->
+        </div>
+        <div
+          class="catalog-empty"
+          id="catalog-empty"
+          style="display: none"
+        >
+          <p
+            class="empty-icon"
+            aria-hidden="true"
+          >🔍</p>
+          <p class="empty-text">Ничего не найдено</p>
+          <p class="empty-hint">Попробуйте изменить фильтры</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── REQUEST FORM CTA (anchor for #request) ─── -->
+    <section
+      class="request-cta"
+      id="request"
+      aria-labelledby="request-heading"
+      style="position: relative;"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1400&amp;auto=format&amp;fit=crop&amp;q=80"
+        alt=""
+        class="cta-bg-img"
+        aria-hidden="true"
+        loading="lazy"
+      >
+      <div class="cta-overlay"></div>
+      <div class="container">
+        <p class="section-eyebrow tc reveal">Остались вопросы?</p>
+        <h2
+          class="section-heading tc reveal reveal--delay-1"
+          id="request-heading"
+          style="color: #fff;"
+        >Оставьте заявку</h2>
+        <p
+          class="request-sub reveal reveal--delay-2"
+          style="color: #fff;"
+        >Наш менеджер свяжется с вами в течение часа</p>
+        <button
+          class="btn btn--primary reveal reveal--delay-3"
+          id="open-request-modal"
+        >Заказать консультацию</button>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ─── FOOTER ─── -->
+  <footer
+    class="site-footer"
+    role="contentinfo"
+  >
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a
+          href="index.html"
+          class="logo"
+          aria-label="Forma — на главную"
+        >
+          <span class="logo-mark">F</span>
+          <span class="logo-text">Forma</span>
+        </a>
+        <p class="footer-tagline">Авторская мебель на заказ</p>
+      </div>
+      <nav
+        class="footer-nav"
+        aria-label="Навигация в подвале"
+      >
+        <ul class="footer-nav-list">
+          <li><a href="index.html#about">О нас</a></li>
+          <li><a href="index.html#works">Работы</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="index.html#process">Процесс</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contacts">
+        <a
+          href="tel:+74951234567"
+          class="footer-contact-link"
+        >+7 (495) 123-45-67</a>
+        <a
+          href="/cdn-cgi/l/email-protection#335b565f5f5c73555c415e521e5e5651565f1d4146"
+          class="footer-contact-link"
+        ><span
+            class="__cf_email__"
+            data-cfemail="7b131e1717143b1d1409161a56161e191e1755090e"
+          >[email&#160;protected]</span></a>
+        <address class="footer-address">
+          Москва, Дизайн-квартал, ул. Лофт, 12
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; <span id="footer-year"></span> Forma. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- ─── MODAL ─── -->
+  <div
+    class="modal"
+    id="request-modal"
+    role="dialog"
+    aria-labelledby="modal-title"
+    aria-modal="true"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-backdrop"
+      id="modal-backdrop"
+    ></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3
+          class="modal-title"
+          id="modal-title"
+        >Заявка на консультацию</h3>
+        <button
+          class="modal-close"
+          id="modal-close"
+          aria-label="Закрыть"
+        >
+          &times;
+        </button>
+      </div>
+      <form
+        class="modal-form"
+        id="request-form"
+        novalidate
+      >
+        <div class="form-group">
+          <label
+            for="form-name"
+            class="form-label"
+          >Ваше имя *</label>
+          <input
+            type="text"
+            id="form-name"
+            class="form-input"
+            required
+            aria-required="true"
+          />
+          <span
+            class="form-error"
+            id="error-name"
+          ></span>
+        </div>
+        <div class="form-group">
+          <label
+            for="form-phone"
+            class="form-label"
+          >Телефон *</label>
+          <input
+            type="tel"
+            id="form-phone"
+            class="form-input"
+            placeholder="+7 (___) ___-__-__"
+            required
+            aria-required="true"
+          />
+          <span
+            class="form-error"
+            id="error-phone"
+          ></span>
+        </div>
+        <div class="form-group">
+          <label
+            for="form-email"
+            class="form-label"
+          >Email</label>
+          <input
+            type="email"
+            id="form-email"
+            class="form-input"
+          />
+          <span
+            class="form-error"
+            id="error-email"
+          ></span>
+        </div>
+        <div class="form-group">
+          <label
+            for="form-message"
+            class="form-label"
+          >Комментарий</label>
+          <textarea
+            id="form-message"
+            class="form-textarea"
+            rows="3"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="btn btn--primary btn--full"
+        >
+          Отправить заявку
+        </button>
+      </form>
+      <div
+        class="modal-success"
+        id="modal-success"
+        style="display: none"
+      >
+        <p
+          class="success-icon"
+          aria-hidden="true"
+        >✓</p>
+        <p class="success-text">Заявка отправлена!</p>
+        <p class="success-sub">Мы свяжемся с вами в ближайшее время</p>
+        <button
+          class="btn btn--secondary"
+          id="success-close"
+        >Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

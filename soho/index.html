@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOHO — Karaoke Bar · Санкт-Петербург</title>
+  <meta name="description" content="SOHO — премиальный кaраоке-бар в Санкт-Петербурге. Приватные VIP-залы, живая кухня, тысячи песен. Забронируйте стол прямо сейчас." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Unbounded:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Leaflet CSS (OpenStreetMap) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════ NAVIGATION ══════════════════ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" aria-label="SOHO на главную">
+        <svg class="nav__logo-svg" viewBox="0 0 158 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <text x="0" y="30" font-family="Syne, sans-serif" font-weight="800" font-size="32" fill="url(#logoGrad)">SOHO</text>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#e040fb"/>
+              <stop offset="100%" stop-color="#00e5ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav__logo-sub">karaoke bar</span>
+      </a>
+
+      <button class="nav__burger" id="navBurger" aria-label="Открыть меню" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav__menu" id="navMenu" role="navigation">
+        <a href="#atmosphere" class="nav__link">Атмосфера</a>
+        <a href="#gallery"    class="nav__link">Галерея</a>
+        <a href="#vip"        class="nav__link">VIP-залы</a>
+        <a href="#menu"       class="nav__link">Кухня</a>
+        <a href="#events"     class="nav__link">События</a>
+        <a href="#reviews"    class="nav__link">Отзывы</a>
+        <a href="#booking"    class="nav__link nav__link--cta">Забронировать</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__video-wrap">
+      <video class="hero__video" id="heroVideo"
+             autoplay muted loop playsinline preload="metadata"
+             poster="https://images.pexels.com/photos/18428609/pexels-photo-18428609.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"
+             aria-hidden="true"
+             data-src-hd="https://videos.pexels.com/video-files/2022395/2022395-hd_1920_1080_30fps.mp4"
+             data-src-md="https://videos.pexels.com/video-files/2022395/2022395-hd_1280_720_30fps.mp4"
+             data-src-sd="https://videos.pexels.com/video-files/2022395/2022395-sd_640_360_30fps.mp4">
+      </video>
+      <div class="hero__overlay"></div>
+    </div>
+
+    <div class="hero__content reveal">
+      <p class="hero__eyebrow">Санкт-Петербург · Лиговский пр., 87</p>
+      <h1 class="hero__title">Пой<br/>как звезда</h1>
+      <p class="hero__sub">Премиальный кaраоке-бар с приватными залами,<br/>живой кухней и атмосферой чистого вдохновения</p>
+      <a href="#booking" class="btn btn--pulse">Забронировать стол</a>
+    </div>
+
+    <a href="#atmosphere" class="hero__scroll" aria-label="Прокрутить вниз">
+      <span class="hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ══════════════════ ARTISTS MARQUEE ══════════════════ -->
+  <section class="marquee-section" aria-label="Исполнители вечера">
+    <div class="marquee">
+      <div class="marquee__track" id="artistsTrack"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ ATMOSPHERE ══════════════════ -->
+  <section class="atmosphere section" id="atmosphere">
+    <div class="container">
+      <div class="atmosphere__grid">
+        <!-- LEFT: photo -->
+        <div class="atmosphere__photo reveal reveal--left">
+          <img
+            src="https://images.pexels.com/photos/13825633/pexels-photo-13825633.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900"
+            alt="Интерьер SOHO с неоновым освещением"
+            loading="lazy"
+          />
+          <div class="atmosphere__photo-glow"></div>
+        </div>
+
+        <!-- RIGHT: features + counter -->
+        <div class="atmosphere__info reveal reveal--right">
+          <span class="section__tag">Почему SOHO</span>
+          <h2 class="section__title">Место, где<br/>рождается легенда</h2>
+
+          <ul class="features" id="featuresList"></ul>
+
+          <div class="counter-block">
+            <div class="counter-item">
+              <span class="counter-num" data-target="184392">0</span>
+              <span class="counter-label">спетых песен</span>
+            </div>
+            <div class="counter-item">
+              <span class="counter-num" data-target="12">0</span>
+              <span class="counter-label">приватных залов</span>
+            </div>
+            <div class="counter-item">
+              <span class="counter-num" data-target="50000">0</span>
+              <span class="counter-label">треков в каталоге</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ GALLERY ══════════════════ -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__tag">Галерея</span>
+        <h2 class="section__title">Живые моменты</h2>
+      </div>
+    </div>
+
+    <div class="gallery__slider-wrap">
+      <div class="gallery__slider" id="gallerySlider"></div>
+      <button class="gallery__arrow gallery__arrow--prev" id="galleryPrev" aria-label="Предыдущий слайд">&#8592;</button>
+      <button class="gallery__arrow gallery__arrow--next" id="galleryNext" aria-label="Следующий слайд">&#8594;</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════ VIP ROOMS ══════════════════ -->
+  <section class="vip section" id="vip">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__tag">VIP-залы</span>
+        <h2 class="section__title">Ваше приватное<br/>пространство</h2>
+      </div>
+      <div class="vip__grid" id="vipGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ KITCHEN ══════════════════ -->
+  <section class="kitchen section" id="menu">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__tag">Кухня</span>
+        <h2 class="section__title">Закуски<br/>и напитки</h2>
+      </div>
+    </div>
+
+    <div class="kitchen__track-wrap">
+      <div class="kitchen__track" id="kitchenTrack"></div>
+    </div>
+
+    <div class="container">
+      <div class="kitchen__footer reveal">
+        <a href="#" class="btn btn--outline" id="menuDownload">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Скачать полное меню (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ EVENTS ══════════════════ -->
+  <section class="events section" id="events">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__tag">События</span>
+        <h2 class="section__title">Календарь<br/>вечеринок</h2>
+      </div>
+      <div class="events__grid" id="eventsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ REVIEWS ══════════════════ -->
+  <section class="reviews section" id="reviews">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__tag">Отзывы</span>
+        <h2 class="section__title">Говорят гости</h2>
+      </div>
+
+      <div class="reviews__carousel-wrap">
+        <div class="reviews__carousel" id="reviewsCarousel"></div>
+        <div class="reviews__dots" id="reviewsDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ BOOKING ══════════════════ -->
+  <section class="booking section" id="booking">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__tag">Бронирование</span>
+        <h2 class="section__title">Забронируйте<br/>стол сейчас</h2>
+      </div>
+
+      <form class="booking__form reveal" id="bookingForm" novalidate>
+        <div class="form__row">
+          <div class="form__field">
+            <label for="bName">Ваше имя</label>
+            <input type="text" id="bName" name="name" placeholder="Иван Иванов" autocomplete="name" required />
+            <span class="form__error" role="alert"></span>
+          </div>
+          <div class="form__field">
+            <label for="bPhone">Телефон</label>
+            <input type="tel" id="bPhone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required />
+            <span class="form__error" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="form__field">
+            <label for="bDate">Дата</label>
+            <input type="date" id="bDate" name="date" required />
+            <span class="form__error" role="alert"></span>
+          </div>
+          <div class="form__field">
+            <label for="bTime">Время</label>
+            <select id="bTime" name="time" required>
+              <option value="">Выберите время</option>
+              <option>18:00</option><option>19:00</option><option>20:00</option>
+              <option>21:00</option><option>22:00</option><option>23:00</option>
+            </select>
+            <span class="form__error" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="form__field">
+            <label for="bGuests">Количество гостей</label>
+            <select id="bGuests" name="guests" required>
+              <option value="">Выберите</option>
+              <option>2</option><option>3</option><option>4</option>
+              <option>5–8</option><option>9–15</option><option>16+</option>
+            </select>
+            <span class="form__error" role="alert"></span>
+          </div>
+          <div class="form__field">
+            <label for="bRoom">Зал</label>
+            <select id="bRoom" name="room">
+              <option value="">Любой свободный</option>
+              <option>Classic — до 6 гостей</option>
+              <option>Neon — до 10 гостей</option>
+              <option>Galaxy — до 20 гостей</option>
+              <option>Platinum — до 30 гостей</option>
+            </select>
+            <span class="form__error" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="form__field form__field--full">
+          <label for="bComment">Комментарий (необязательно)</label>
+          <textarea id="bComment" name="comment" rows="3" placeholder="Особые пожелания, повод..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--pulse form__submit" id="bookingSubmit">
+          Подтвердить бронирование
+        </button>
+      </form>
+
+      <!-- Success state -->
+      <div class="booking__success" id="bookingSuccess" aria-live="polite" hidden>
+        <div class="booking__success-icon">✓</div>
+        <h3>Заявка принята!</h3>
+        <p>Мы свяжемся с вами в течение 15 минут для подтверждения.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ CONTACTS ══════════════════ -->
+  <section class="contacts section" id="contacts">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__tag">Контакты</span>
+        <h2 class="section__title">Как нас найти</h2>
+      </div>
+
+      <div class="contacts__grid">
+        <div class="contacts__info stagger">
+          <div class="contacts__block">
+            <h3>Адрес</h3>
+            <p>Санкт-Петербург,<br/>Лиговский пр., 87</p>
+          </div>
+          <div class="contacts__block">
+            <h3>Часы работы</h3>
+            <p>Пн–Чт: 18:00 — 02:00<br/>Пт–Сб: 18:00 — 05:00<br/>Вс: 17:00 — 00:00</p>
+          </div>
+          <div class="contacts__block">
+            <h3>Телефон</h3>
+            <a href="tel:+78121234567" class="contacts__phone">+7 (812) 123-45-67</a>
+          </div>
+          <div class="contacts__block">
+            <h3>Мессенджеры</h3>
+            <div class="contacts__socials" id="contactsSocials"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ WIDE FULL-WIDTH MAP (OpenStreetMap / Leaflet) ═══ -->
+    <div class="map-wide reveal">
+      <div id="map-wide" role="application" aria-label="Карта расположения SOHO Karaoke Bar"></div>
+      <div class="map-overlay-card">
+        <div class="map-overlay-card__logo">SOHO</div>
+        <div class="map-overlay-card__sub">karaoke bar</div>
+        <div class="map-overlay-card__row">
+          <strong>Санкт-Петербург</strong><br/>Лиговский проспект, 87
+        </div>
+        <div class="map-overlay-card__row">Ежедневно с 18:00</div>
+        <a href="tel:+78121234567" class="contacts__phone">+7 (812) 123-45-67</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ FOOTER ══════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <a href="#hero" class="nav__logo footer__logo" aria-label="SOHO на главную">
+          <svg viewBox="0 0 157 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="0" y="30" font-family="Syne, sans-serif" font-weight="800" font-size="32" fill="url(#logoGrad2)">SOHO</text>
+            <defs>
+              <linearGradient id="logoGrad2" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#e040fb"/>
+                <stop offset="100%" stop-color="#00e5ff"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="nav__logo-sub">karaoke bar</span>
+        </a>
+        <p class="footer__copy">© 2026 SOHO Karaoke Bar · Санкт-Петербург · Все права защищены</p>
+        <div class="footer__socials" id="footerSocials"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
