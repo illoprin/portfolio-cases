@@ -5,105 +5,105 @@ const productsData = [
     title: 'Диван Loft Modern',
     type: 'sofa',
     materials: ['fabric', 'wood'],
-    img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop&q=80'
+    img: './images/image1.webp'
   },
   {
     id: 2,
     title: 'Диван Cloud',
     type: 'sofa',
     materials: ['fabric'],
-    img: 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=600&auto=format&fit=crop&q=80'
+    img: './images/image14.webp'
   },
   {
     id: 3,
     title: 'Кресло Nordic',
     type: 'chair',
     materials: ['wood', 'fabric'],
-    img: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&auto=format&fit=crop&q=80'
+    img: './images/image2.webp'
   },
   {
     id: 4,
     title: 'Кресло Velvet',
     type: 'chair',
     materials: ['fabric', 'metal'],
-    img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=80'
+    img: './images/image15.webp'
   },
   {
     id: 5,
     title: 'Стол Heritage',
     type: 'table',
     materials: ['wood'],
-    img: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&auto=format&fit=crop&q=80'
+    img: './images/image3.webp'
   },
   {
     id: 6,
     title: 'Стол Glass Top',
     type: 'table',
     materials: ['glass', 'metal'],
-    img: 'https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=600&auto=format&fit=crop&q=80'
+    img: './images/image16.webp'
   },
   {
     id: 7,
     title: 'Шкаф Minimalist',
     type: 'cabinet',
     materials: ['wood'],
-    img: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&auto=format&fit=crop&q=80'
+    img: './images/image4.webp'
   },
   {
     id: 8,
     title: 'Шкаф Industrial',
     type: 'cabinet',
     materials: ['wood', 'metal'],
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80'
+    img: './images/image17.webp'
   },
   {
     id: 9,
     title: 'Кровать Aurora',
     type: 'bed',
     materials: ['wood', 'fabric'],
-    img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop&q=80'
+    img: './images/image5.webp'
   },
   {
     id: 10,
     title: 'Кровать Luxury',
     type: 'bed',
     materials: ['wood', 'leather'],
-    img: 'https://images.unsplash.com/photo-1556020685-ae41abfc9365?w=600&auto=format&fit=crop&q=80'
+    img: './images/image18.webp'
   },
   {
     id: 11,
     title: 'Полки Flex',
     type: 'shelf',
     materials: ['wood', 'metal'],
-    img: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=600&auto=format&fit=crop&q=80'
+    img: './images/image6.webp'
   },
   {
     id: 12,
     title: 'Полки Floating',
     type: 'shelf',
     materials: ['wood'],
-    img: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&auto=format&fit=crop&q=80'
+    img: './images/image4.webp'
   },
   {
     id: 13,
     title: 'Диван Chester',
     type: 'sofa',
     materials: ['leather', 'wood'],
-    img: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&auto=format&fit=crop&q=80'
+    img: './images/image19.webp'
   },
   {
     id: 14,
     title: 'Кресло Lounge',
     type: 'chair',
     materials: ['leather', 'metal'],
-    img: 'https://images.unsplash.com/photo-1519947486511-46149fa0a254?w=600&auto=format&fit=crop&q=80'
+    img: './images/image20.webp'
   },
   {
     id: 15,
     title: 'Стол Console',
     type: 'table',
     materials: ['wood', 'metal'],
-    img: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=600&auto=format&fit=crop&q=80'
+    img: './images/image21.webp'
   }
 ];
 

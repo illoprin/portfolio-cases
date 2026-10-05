@@ -1,7 +1,6 @@
 // page content data
 const VIDEO_SRC = "footage.mp4";
-const U = (id, w = 1400) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
+const U = (id) => `./images/${id}.jpg`;
 const IMG = {
   hero: "photo-1545324418-cc1a3fa10c00",
   a: "photo-1486406146926-c627a92ad1ab",

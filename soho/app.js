@@ -4,8 +4,7 @@
 
 // content data
 
-const PX = (id, w = 900) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+const PX = (id) => `./images/pexels-photo-${id}.jpeg`;
 
 const DATA = {
   venue: {

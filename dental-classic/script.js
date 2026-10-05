@@ -33,27 +33,27 @@ const DATA = {
 
   gallery: [
     {
-      url: "https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=85",
+      url: "./images/image1.webp",
       caption: "Приёмная с прованскими акцентами",
     },
     {
-      url: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=85",
+      url: "./images/image2.webp",
       caption: "Кабинет с современным оборудованием",
     },
     {
-      url: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&q=85",
+      url: "./images/image3.webp",
       caption: "Зона ожидания",
     },
     {
-      url: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=85",
+      url: "./images/image4.webp",
       caption: "Лаунж-зона для отдыха",
     },
     {
-      url: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=85",
+      url: "./images/image5.webp",
       caption: "Кабинет ортодонта",
     },
     {
-      url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85",
+      url: "./images/image6.webp",
       caption: "Операционная для имплантации",
     },
   ],
@@ -64,7 +64,7 @@ const DATA = {
       description:
         "Полное восстановление зубов с использованием имплантов Nobel Biocare и Straumann — мировых лидеров качества. Пожизненная гарантия на работу.",
       image:
-        "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=85",
+        "./images/image7.webp",
       features: [
         "3D-планирование операции",
         "Имплантация без боли под седацией",
@@ -78,7 +78,7 @@ const DATA = {
       description:
         "Виниры, коронки и мостовидные протезы из современных материалов. Создаём естественную улыбку с учётом формы лица и индивидуальных особенностей.",
       image:
-        "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=85",
+        "./images/image2.webp",
       features: [
         "Виниры E-max и керамика",
         "Коронки из диоксида циркония",
@@ -92,7 +92,7 @@ const DATA = {
       description:
         "Исправление прикуса брекет-системами и прозрачными элайнерами. Незаметное лечение для взрослых и подростков.",
       image:
-        "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&q=85",
+        "./images/image3.webp",
       features: [
         "Invisalign и Star Smile",
         "Сапфировые и лингвальные брекеты",
@@ -106,7 +106,7 @@ const DATA = {
       description:
         "Безопасное отбеливание системами Zoom 4 и Opalescence — осветление до 12 тонов за одну процедуру с защитой эмали.",
       image:
-        "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=85",
+        "./images/image5.webp",
       features: [
         "Отбеливание Zoom 4",
         "Домашние системы Opalescence",
@@ -119,7 +119,7 @@ const DATA = {
 
   doctor: {
     image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=85",
+      "./images/image8.webp",
     credentials: [
       "Стаж работы более 15 лет",
       "Кандидат медицинских наук",
@@ -138,7 +138,7 @@ const DATA = {
       text: "Делала имплантацию у Анны Сергеевны — это было лучшее решение! Никакой боли, всё прошло быстро. Клиника как из журнала, очень уютно. Результатом в восторге.",
       service: "Имплантация",
       avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=85",
+        "./images/image9.webp",
     },
     {
       name: "Дмитрий Козлов",
@@ -147,7 +147,7 @@ const DATA = {
       text: "Ставил виниры, результат превзошёл ожидания. Улыбка выглядит абсолютно естественно. Персонал внимательный, всё объясняют. Рекомендую!",
       service: "Виниры",
       avatar:
-        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=200&q=85",
+        "./images/image10.webp",
     },
     {
       name: "Ольга Петрова",
@@ -156,7 +156,7 @@ const DATA = {
       text: "Исправляла прикус элайнерами Invisalign. Процесс комфортный, никто не замечал, что я их ношу. Результат отличный, зубы ровные. Спасибо команде!",
       service: "Ортодонтия",
       avatar:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=85",
+        "./images/image11.webp",
     },
     {
       name: "Максим Николаев",
@@ -165,7 +165,7 @@ const DATA = {
       text: "Делал отбеливание Zoom 4 — зубы стали белоснежными! Процедура безболезненная, заняла около часа. Клиника на высшем уровне.",
       service: "Отбеливание",
       avatar:
-        "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=200&q=85",
+        "./images/image12.webp",
     },
     {
       name: "Анастасия Волкова",
@@ -174,7 +174,7 @@ const DATA = {
       text: "Проходила комплексную диагностику — очень понравился подход. Несколько врачей осмотрели, составили план лечения. Чувствуешь заботу с первых минут.",
       service: "Диагностика",
       avatar:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=85",
+        "./images/image13.webp",
     },
     {
       name: "Сергей Орлов",
@@ -183,7 +183,7 @@ const DATA = {
       text: "Установил коронки из циркония — качество на уровне! Цвет подобрали идеально, не отличить от своих зубов. Очень доволен работой докторов.",
       service: "Коронки",
       avatar:
-        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=200&q=85",
+        "./images/image14.webp",
     },
   ],
 };

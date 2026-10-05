@@ -22,32 +22,32 @@ const worksData = [
   {
     title: 'Гостиная Loft',
     category: 'Диваны',
-    img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop&q=80'
+    img: './images/image1.webp'
   },
   {
     title: 'Кресло Nordic',
     category: 'Кресла',
-    img: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&auto=format&fit=crop&q=80'
+    img: './images/image2.webp'
   },
   {
     title: 'Стол Heritage',
     category: 'Столы',
-    img: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600&auto=format&fit=crop&q=80'
+    img: './images/image3.webp'
   },
   {
     title: 'Шкаф Minimalist',
     category: 'Шкафы',
-    img: 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600&auto=format&fit=crop&q=80'
+    img: './images/image4.webp'
   },
   {
     title: 'Кровать Aurora',
     category: 'Кровати',
-    img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop&q=80'
+    img: './images/image5.webp'
   },
   {
     title: 'Полки Flex',
     category: 'Полки',
-    img: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=600&auto=format&fit=crop&q=80'
+    img: './images/image6.webp'
   }
 ];
 
@@ -74,22 +74,22 @@ const materialsData = [
   {
     title: 'Массив дуба',
     desc: 'Европейский дуб класса А',
-    img: 'https://images.unsplash.com/photo-1615875605825-5eb9bb5d52ac?w=400&auto=format&fit=crop&q=80'
+    img: './images/image7.webp'
   },
   {
     title: 'Итальянская кожа',
     desc: 'Натуральная кожа премиум',
-    img: 'https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=400&auto=format&fit=crop&q=80'
+    img: './images/image8.webp'
   },
   {
     title: 'Металл',
     desc: 'Сталь с порошковым покрытием',
-    img: 'https://images.unsplash.com/photo-1492943301880-e4b772f94dc6?w=400&auto=format&fit=crop&q=80'
+    img: './images/image9.webp'
   },
   {
     title: 'Стекло',
     desc: 'Закалённое стекло 10мм',
-    img: 'https://images.unsplash.com/photo-1604881991720-f91add269bed?w=400&auto=format&fit=crop&q=80'
+    img: './images/image10.webp'
   }
 ];
 
